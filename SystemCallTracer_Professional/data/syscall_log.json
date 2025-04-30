@@ -1,0 +1,7 @@
+{"timestamp": "12:18:05", "name": "mmap", "args": [14, 15, 3], "return": 0}
+{"timestamp": "12:18:07", "name": "mmap", "args": [96, 2, 60], "return": 0}
+{"timestamp": "12:18:09", "name": "fork", "args": [27, 23, 62], "return": 1}
+{"timestamp": "12:18:11", "name": "open", "args": [82, 13, 90], "return": 0}
+{"timestamp": "12:18:13", "name": "fork", "args": [14, 10, 79], "return": 3}
+{"timestamp": "12:18:15", "name": "mmap", "args": [16, 94, 52], "return": 6}
+{"timestamp": "12:18:17", "name": "close", "args": [94, 95, 70], "return": 7}

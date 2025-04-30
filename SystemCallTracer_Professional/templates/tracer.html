@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Syscall Logs</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% include 'navbar.html' %}
+<div class="container">
+  <h2>Tracer Page</h2>
+  <table>
+    <tr>
+      <th>Timestamp</th>
+      <th>Call Name</th>
+      <th>Arguments</th>
+      <th>Return Value</th>
+    </tr>
+    {% for syscall in syscalls %}
+    <tr>
+      <td>{{ syscall.timestamp }}</td>
+      <td>{{ syscall.name }}</td>
+      <td>{{ syscall.args }}</td>
+      <td>{{ syscall.return }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+</body>
+</html>

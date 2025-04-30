@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>System Call Tracer</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% include 'navbar.html' %}
+<div class="container">
+  <h1>System Call Tracer - Home</h1>
+  <canvas id="liveChart" width="800" height="400"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('liveChart').getContext('2d');
+  const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: [],
+          datasets: [{
+              label: 'Syscalls (simulated count)',
+              data: [],
+              borderColor: 'blue',
+              fill: false
+          }]
+      },
+      options: {
+          scales: {
+              x: { display: true },
+              y: { beginAtZero: true }
+          }
+      }
+  });
+
+  setInterval(() => {
+      const now = new Date().toLocaleTimeString();
+      const count = Math.floor(Math.random() * 10 + 1);
+      chart.data.labels.push(now);
+      chart.data.datasets[0].data.push(count);
+      if (chart.data.labels.length > 10) {
+          chart.data.labels.shift();
+          chart.data.datasets[0].data.shift();
+      }
+      chart.update();
+  }, 2000);
+</script>
+</body>
+</html>
